@@ -118,8 +118,12 @@
                             <select id="deviceModel"  style="height: 25px; border-radius: 5px; border: solid #003e29; font-family: cursive;">
                                 <option value="Realme">Realme</option>
                                 <option value="Samsung">Samsung</option>
-                                <option value="Google">Google</option>
-                                <option value="Lenovo">Lenovo</option>
+                                <option value="Apple">Google</option>
+                                <option value="Jio">Jio</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Vivo">Vivo</option>
+                                <option value="Asus">Asus</option>
+                                <option value="HTC">HTC</option>
                                 <!-- Add more device models as needed -->
                             </select>
                         </div>
@@ -129,12 +133,13 @@
 
                             
                             <label for="purchaseDate">Date of Purchase:</label>
-                            <input type="date" id="purchaseDate" style="height: 25px; border-radius: 5px; border: solid #003e29; font-family: cursive;">
+                            <input type="date" id="purchaseDate" style="height: 25px; border-radius: 5px; border: solid #003e29; font-family: cursive;" value="2007-06-29">
                         </div>
                             <br>
                             <!-- Button to Calculate Estimated Price -->
                             <div style="text-align: center; margin: 1.5%; font-family: cursive;">
-                            <button style="text-align: justify; padding: 2%; font-family:cursive; background-color: #003e29; color: white; border: none; border-radius: 5px;" onclick="calculateEstimatedPrice()">Calculate Estimated Price</button>
+                            <button style="text-align: justify; padding: 2%; font-family:cursive; background-color: #003e29; color: white; border: none; border-radius: 5px;" onclick="calculateEstimatedPrice()" id="Button">Calculate Estimated Price</button>
+                            <div id="display_price"></div>
                         </div>
                     </div> 
 
@@ -220,6 +225,21 @@
     function Clear(){
         window.localStorage.removeItem('_User');
     }
+
+    function calculateEstimatedPrice(){
+        const min = 400;
+        const max = 1500;
+        var count = 0;
+
+        if(count < 1){
+        const randomNumber = Math.floor(Math.random() * (max - min +1)) + min;
+        console.log(randomNumber);
+        
+        document.getElementById('display_price').innerHTML=`Your estimated points is : ${randomNumber}`;
+        Button.disabled = true;
+        }
+    }
+       
 
     </script>
 
